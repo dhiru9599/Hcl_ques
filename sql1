@@ -1,0 +1,8 @@
+CREATE OR REPLACE VIEW view_event_count_details AS
+SELECT u.name, COUNT(e.organiser_id) AS event_count
+FROM user AS u
+INNER JOIN event AS e ON u.id = e.organiser_id
+GROUP BY u.name
+HAVING COUNT(e.organiser_id) >= 1
+ORDER BY u.name;
+
