@@ -1,9 +1,12 @@
 using System;
 
-class Program
+class HelloWorld
 {
-    static bool IsSorted(int n)
+    public static void Main(string[] args)
     {
+        
+        int n = int.Parse(Console.ReadLine());
+
         int prevDigit = n % 10;
         n /= 10;
         bool increasing = true;
@@ -15,7 +18,8 @@ class Program
 
             if (currentDigit == prevDigit)
             {
-                return false; // Consecutive digits are equal
+                Console.WriteLine("no");
+                return; // Consecutive digits are equal
             }
             else if (currentDigit < prevDigit)
             {
@@ -30,15 +34,7 @@ class Program
             n /= 10;
         }
 
-        return increasing || decreasing;
-    }
-
-    static void Main()
-    {
-        Console.WriteLine("Enter an integer: ");
-        int n = int.Parse(Console.ReadLine());
-
-        if (n >= 100 && n <= 999 && IsSorted(n))
+        if (increasing || decreasing)
         {
             Console.WriteLine("yes");
         }
